@@ -1,8 +1,7 @@
-package com.example.flickfinder.ui
+package com.example.flickfinder
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.flickfinder.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
