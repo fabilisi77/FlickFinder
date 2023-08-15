@@ -8,17 +8,22 @@
         android:id="@+id/movieFragment"
         android:name="com.example.flickfinder.ui.movie.MovieFragment"
         android:label="fragment_movie"
-        tools:layout="@layout/fragment_movie" />
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/action_movieFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.example.flickfinder.ui.moviedetail.MovieDetailFragment"
         android:label="fragment_movie_detail"
         tools:layout="@layout/fragment_movie_detail" >
+
         <argument
-            android:name="posterimageUrl"
+            android:name="posterImageUrl"
             app:argType="string" />
         <argument
-            android:name="backgroundimageUrl"
+            android:name="backgroundImageUrl"
             app:argType="string" />
         <argument
             android:name="voteAverage"
