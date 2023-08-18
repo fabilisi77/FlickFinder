@@ -4,7 +4,7 @@ import com.example.flickfinder.data.model.MovieList
 import com.example.flickfinder.repository.WebService
 import com.example.flickfinder.utils.AppConstants
 
-class MovieDataSource(private val webService: WebService) {
+class RemoteMovieDataSource(private val webService: WebService) {
 
     suspend fun getUpcomingMovies(): MovieList {
         return webService.getUpcomingMovies(AppConstants.API_KEY)

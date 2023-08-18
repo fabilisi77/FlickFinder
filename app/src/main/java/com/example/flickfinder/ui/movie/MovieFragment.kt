@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import com.example.flickfinder.R
 import com.example.flickfinder.core.Resource
 import com.example.flickfinder.data.model.Movie
-import com.example.flickfinder.data.remote.MovieDataSource
+import com.example.flickfinder.data.remote.RemoteMovieDataSource
 import com.example.flickfinder.databinding.FragmentMovieBinding
 import com.example.flickfinder.presentation.MovieViewModel
 import com.example.flickfinder.presentation.MovieViewModelFactory
@@ -28,7 +28,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
     private val viewModel by viewModels<MovieViewModel> {
         MovieViewModelFactory(
             MovieRepositoryImpl(
-                MovieDataSource(RetrofitClient.webservice)
+                RemoteMovieDataSource(RetrofitClient.webservice)
             )
         )
     }
