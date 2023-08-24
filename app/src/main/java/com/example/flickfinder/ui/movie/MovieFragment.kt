@@ -10,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.example.flickfinder.R
 import com.example.flickfinder.core.Resource
+import com.example.flickfinder.data.local.AppDataBase
+import com.example.flickfinder.data.local.LocalMovieDataSource
 import com.example.flickfinder.data.model.Movie
 import com.example.flickfinder.data.remote.RemoteMovieDataSource
 import com.example.flickfinder.databinding.FragmentMovieBinding
@@ -28,8 +30,9 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
     private val viewModel by viewModels<MovieViewModel> {
         MovieViewModelFactory(
             MovieRepositoryImpl(
-                RemoteMovieDataSource(RetrofitClient.webservice)
-            )
+                RemoteMovieDataSource(RetrofitClient.webservice),
+                LocalMovieDataSource(AppDataBase.getDataBase(requireContext()).movieDao())
+             )
         )
     }
     private lateinit var concatAdapter: ConcatAdapter
